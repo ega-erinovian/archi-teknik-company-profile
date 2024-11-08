@@ -1,25 +1,29 @@
 import HeroVideoDialog from "@/components/ui/hero-video-dialog";
+import BoxReveal from "@/components/ui/box-reveal";
 
 const Header = () => {
   return (
-    <div className="pb-28">
-      <div className="lg:grid lg:grid-cols-3 text-center lg:text-start pb-12 lg:pb-20">
-        <h1 className="font-bold text-5xl mb-5 col-span-2 xl:text-7xl">
-          We provide logistics solution tailor-made for individual customer.
+    <div className="container mx-auto px-5 md:px-20 xl:px-0 mb-48 xl:mb-96">
+      <div className="xl:grid xl:grid-cols-3 text-center xl:text-start pb-12 lg:pb-20">
+        <h1 className="font-bold text-4xl mb-5 col-span-2 xl:text-7xl">
+          Empowering Progress with Sustainable Engineering Solutions for a
+          Better Future
         </h1>
         <div className="flex items-end">
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-            quasi perferendis molestias vitae eveniet labore velit amet quia
-            quaerat vel nulla sit numquam nisi suscipit est nesciunt ullam
-            cumque quo esse corrupti ut dolorum, aliquid, magni voluptatibus.
-            Nisi, saepe cupiditate!
-          </p>
+          <BoxReveal boxColor={"#2663eb"} duration={0.75}>
+            <p className="text-gray-700">
+              As a trusted engineering consultancy, we specialize in creating
+              efficient, forward-thinking designs that drive progress. Our
+              mission is to enhance communities through sustainable
+              infrastructure, prioritizing safety, quality, and environmental
+              responsibility in every project.
+            </p>
+          </BoxReveal>
         </div>
       </div>
       <div className="relative mb-24">
         <HeroVideoDialog
-          className="dark:hidden block h-[100px] rounded-3xl"
+          className="dark:hidden block"
           animationStyle="from-center"
           videoSrc="https://www.youtube.com/embed/O9F4rXp1Ogc?si=WkllVozAevIwWLBf"
           thumbnailSrc="/Homepage/Header/vidThumbnail.jpg"

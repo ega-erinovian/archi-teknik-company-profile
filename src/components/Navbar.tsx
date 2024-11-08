@@ -14,7 +14,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="top-0 z-50 bg-white sticky backdrop-filter backdrop-blur-lg bg-opacity-50">
+    <nav className="top-0 z-50 bg-white sticky backdrop-filter backdrop-blur-xl bg-opacity-70">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -76,7 +76,7 @@ const Navbar = () => {
             <Link
               key={item.label}
               href={item.href}
-              className="font-semibold block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors"
+              className="font-semibold block px-3 py-2 rounded-md text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors"
               style={{
                 transitionDelay: `${index * 50}ms`,
               }}>
