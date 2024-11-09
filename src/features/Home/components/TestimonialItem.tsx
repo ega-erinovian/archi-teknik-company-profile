@@ -3,11 +3,12 @@ import React, { FC } from "react";
 
 interface TestimonialItemProps {
   testimonial: {
-    imageURL: string;
-    logo: string;
-    text: string;
+    entryId: string;
+    review: string;
     name: string;
-    position: string;
+    company: string;
+    companyLogo: string;
+    backgroundImage: string;
   };
 }
 
@@ -17,9 +18,9 @@ const TestimonialItem: FC<TestimonialItemProps> = ({ testimonial }) => {
       <div className="h-1/2 lg:h-full col-span-2">
         <div className="relative w-full h-full ">
           <Image
-            src={testimonial.imageURL}
+            src={testimonial.backgroundImage}
             alt="test"
-            className="object-cover lg:object-left bg-left-bottom"
+            className="object-cover lg:object-right bg-left-bottom"
             fill
             sizes="1000"
           />
@@ -27,18 +28,18 @@ const TestimonialItem: FC<TestimonialItemProps> = ({ testimonial }) => {
       </div>
       <div className="px-8 py-4 lg:px-12 lg:py-8 relative w-full col-span-3 h-1/2 lg:h-full">
         <p className="text-lg lg:text-2xl xl:text-3xl text-start">
-          ″{testimonial.text}″
+          ″{testimonial.review}″
         </p>
         <div className="flex justify-between items-center absolute bottom-4 lg:bottom-8 left-0 w-full px-8 lg:px-12">
           <div>
             <h3 className="font-bold xl:text-2xl capitalize">
               {testimonial.name}
             </h3>
-            <p className="text-xs md:text-sm">{testimonial.position}</p>
+            <p className="text-xs md:text-sm">{testimonial.company}</p>
           </div>
           <div className="relative w-[100px] h-[50px]">
             <Image
-              src={testimonial.logo}
+              src={testimonial.companyLogo}
               alt="test"
               className="object-contain"
               fill

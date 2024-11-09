@@ -4,25 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import questionAnswers from "../constants/questionAnswers";
 
 const FAQ = () => {
-  const questionAnswers = [
-    {
-      question: "What do you want to ask 1?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem quod eum nobis nulla pariatur nisi impedit et earum? Nam, inventore?",
-    },
-    {
-      question: "What do you want to ask 2?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem quod eum nobis nulla pariatur nisi impedit et earum? Nam, inventore?",
-    },
-    {
-      question: "What do you want to ask 3?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem quod eum nobis nulla pariatur nisi impedit et earum? Nam, inventore?",
-    },
-  ];
   return (
     <div className="container mx-auto px-5 md:px-20 xl:px-0 mb-48 xl:mb-96">
       <h1 className="text-4xl xl:text-7xl text-center lg:text-start font-bold mb-20 xl:mb-24 capitalize">
@@ -35,7 +19,9 @@ const FAQ = () => {
             <AccordionTrigger className="font-semibold text-xl xl:text-2xl my-4">
               {item.question}
             </AccordionTrigger>
-            <AccordionContent>{item.answer}</AccordionContent>
+            <AccordionContent className="text-lg">
+              {item.answer}
+            </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>

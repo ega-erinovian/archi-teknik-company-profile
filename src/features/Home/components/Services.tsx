@@ -6,6 +6,7 @@ import { PiBlueprintFill } from "react-icons/pi";
 import { RiScanFill } from "react-icons/ri";
 
 const Services = () => {
+  // TODO: CMS
   const services = [
     {
       icon: <PiBlueprintFill className="text-5xl xl:text-7xl mb-7" />,

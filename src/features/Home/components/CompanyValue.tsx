@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ValueItem from "./ValueItem";
+import NumberTicker from "@/components/ui/number-ticker";
 
 const CompanyValue = () => {
   return (
@@ -22,10 +23,60 @@ const CompanyValue = () => {
         </div>
         {/* TODO: Testimonials number - mobile ver*/}
         <div className="grid md:grid-cols-2 xl:grid-cols-4 md:gap-20 gap-32 mt-20 text-white">
-          <ValueItem />
-          <ValueItem />
-          <ValueItem />
-          <ValueItem />
+          <div className="text-center xl:text-start">
+            <h1 className="font-semibold mb-7 text-5xl xl:text-6xl">
+              $<NumberTicker className="text-white" value={5} />
+              b+
+            </h1>
+            <hr className="mb-7" />
+            <h2 className="font-semibold text-3xl md:text-2xl mb-5">
+              Equity Value
+            </h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Molestiae, earum.
+            </p>
+          </div>
+          <div className="text-center xl:text-start">
+            <NumberTicker
+              className="font-semibold mb-7 text-5xl xl:text-6xl text-white"
+              value={932}
+            />
+            <hr className="mb-7" />
+            <h2 className="font-semibold text-3xl md:text-2xl mb-5">
+              Ventures
+            </h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Molestiae, earum.
+            </p>
+          </div>
+          <div className="text-center xl:text-start">
+            <h1 className="font-semibold mb-7 text-5xl xl:text-6xl">
+              <NumberTicker className="text-white" value={100} />%
+            </h1>
+            <hr className="mb-7" />
+            <h2 className="font-semibold text-3xl md:text-2xl mb-5">
+              Client Satisfaction
+            </h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Molestiae, earum.
+            </p>
+          </div>
+          <div className="text-center xl:text-start">
+            <h1 className="font-semibold mb-7 text-5xl xl:text-6xl">
+              <NumberTicker className="text-white" value={50} />+
+            </h1>
+            <hr className="mb-7" />
+            <h2 className="font-semibold text-3xl md:text-2xl mb-5">
+              Global Partners
+            </h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Molestiae, earum.
+            </p>
+          </div>
         </div>
       </div>
     </div>

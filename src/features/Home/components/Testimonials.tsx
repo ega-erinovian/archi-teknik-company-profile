@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Marquee from "@/components/ui/marquee";
 import TestimonialItem from "./TestimonialItem";
+import { getTestimoinals } from "@/lib/contentful";
 
-const Testimonials = () => {
+const Testimonials = async () => {
   const testimonials = [
     {
       imageURL: "/homepage/testimonial/space-x.png",
@@ -27,11 +28,15 @@ const Testimonials = () => {
     },
   ];
 
+  const testimonialss = await getTestimoinals();
   return (
     <div className="mb-48 xl:mb-96">
       <Marquee pauseOnHover className="[--duration:40s]">
-        {testimonials.map((testimonial, idx) => (
-          <TestimonialItem key={idx} testimonial={testimonial} />
+        {testimonialss?.map((testimonial) => (
+          <TestimonialItem
+            key={testimonial.entryId}
+            testimonial={testimonial}
+          />
         ))}
       </Marquee>
     </div>
