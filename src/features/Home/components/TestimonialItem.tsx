@@ -13,13 +13,13 @@ interface TestimonialItemProps {
 
 const TestimonialItem: FC<TestimonialItemProps> = ({ testimonial }) => {
   return (
-    <div className="border border-gray-400 rounded-xl lg:grid lg:grid-cols-5 h-[70vh] lg:h-[60vh] w-[85vw] md:w-[70vw] xl:w-[50vw]">
+    <div className="border border-gray-400 rounded-xl lg:grid lg:grid-cols-5 h-[70vh] lg:h-[60vh] w-[85vw] md:w-[70vw] xl:w-[50vw] overflow-hidden">
       <div className="h-1/2 lg:h-full col-span-2">
         <div className="relative w-full h-full ">
           <Image
             src={testimonial.imageURL}
             alt="test"
-            className="object-cover lg:object-left rounded-t-lg lg:rounded-t-none lg:rounded-s-lg bg-left-bottom"
+            className="object-cover lg:object-left bg-left-bottom"
             fill
             sizes="1000"
           />
@@ -34,7 +34,7 @@ const TestimonialItem: FC<TestimonialItemProps> = ({ testimonial }) => {
             <h3 className="font-bold xl:text-2xl capitalize">
               {testimonial.name}
             </h3>
-            <p className="text-sm">{testimonial.position}</p>
+            <p className="text-xs md:text-sm">{testimonial.position}</p>
           </div>
           <div className="relative w-[100px] h-[50px]">
             <Image
