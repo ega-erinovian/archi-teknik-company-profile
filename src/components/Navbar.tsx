@@ -1,21 +1,54 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { headers } from "next/headers";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [textColor, setTextColor] = useState("");
+
+  const currentPath = usePathname();
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
+    { label: "About", href: "/about-us" },
     { label: "Services", href: "/services" },
     { label: "Contact", href: "/contact" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (currentPath === "/about-us" || currentPath === "/services") {
+      setTextColor("text-white");
+      if (isScrolled) {
+        setTextColor("text-gray-600");
+      }
+    } else {
+      setTextColor("text-gray-600");
+    }
+  }, [currentPath, isScrolled]);
+
   return (
-    <nav className="top-0 z-50 bg-white sticky backdrop-filter backdrop-blur-xl bg-opacity-70">
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/70 backdrop-blur-lg shadow-sm" : "bg-transparent"
+      }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -45,7 +78,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm transition-colors font-semibold">
+                className={`hover:text-blue-600 px-3 py-2 rounded-md text-sm transition-colors font-semibold ${textColor}`}>
                 {item.label}
               </Link>
             ))}

@@ -20,7 +20,7 @@ const TestimonialItem: FC<TestimonialItemProps> = ({ testimonial }) => {
           <Image
             src={testimonial.backgroundImage}
             alt="test"
-            className="object-cover lg:object-right bg-left-bottom"
+            className="object-cover lg:object-right-bottom"
             fill
             sizes="1000"
           />

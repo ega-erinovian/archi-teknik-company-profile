@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ValueItem from "./ValueItem";
 import NumberTicker from "@/components/ui/number-ticker";
 
 const CompanyValue = () => {
