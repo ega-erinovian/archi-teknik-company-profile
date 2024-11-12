@@ -5,7 +5,7 @@ import React from "react";
 import CompanyValue from "./components/CompanyValue";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
-import ContactLink from "./components/ContactLink";
+import ContactLink from "@/components/ContactLink";
 
 const HomePage = () => {
   return (

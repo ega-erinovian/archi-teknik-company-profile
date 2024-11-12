@@ -25,7 +25,7 @@ const CompanyValue = () => {
         </div>
         <div className="text-center xl:text-start">
           <h1 className="font-semibold mb-7 text-5xl xl:text-6xl">
-            <NumberTicker className="text-black" value={30} /> years
+            <NumberTicker className="text-black" value={37} /> years
           </h1>
           <hr className="mb-7" />
           <h2 className="font-semibold text-3xl md:text-2xl mb-5">

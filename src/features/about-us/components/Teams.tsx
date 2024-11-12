@@ -10,6 +10,7 @@ import {
 import Team from "./Team";
 import useGetRandomUser from "@/hooks/useGetRandomUser";
 import { Skeleton } from "@/components/Loading";
+import Autoplay from "embla-carousel-autoplay";
 
 const Teams = () => {
   const positions = [
@@ -32,11 +33,18 @@ const Teams = () => {
       <h1 className="text-4xl xl:text-7xl text-center lg:text-start font-bold mb-20 xl:mb-24 capitalize">
         Meet our <span className="text-blue-600">experts</span>
       </h1>
-      <Carousel className="">
+      <Carousel
+        plugins={[
+          Autoplay({
+            delay: 2000,
+          }),
+        ]}>
         <CarouselContent>
           {users &&
             users.map((user, idx) => (
-              <CarouselItem key={idx} className="md:basis-1/3 lg:basis-1/4">
+              <CarouselItem
+                key={idx}
+                className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                 <Team user={user} position={positions[idx]} />
               </CarouselItem>
             ))}
