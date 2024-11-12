@@ -3,7 +3,7 @@ const CompanyOverview = () => {
     <div className="container mx-auto px-5 md:px-20 xl:px-0 mb-48 xl:mb-80">
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:gap-4">
         <div className="h-full">
-          <h1 className="font-bold text-2xl mb-5 xl:text-5xl lg:sticky lg:top-20">
+          <h1 className="font-bold text-2xl mb-5 xl:text-5xl lg:sticky lg:top-32">
             Building a Future of Innovation and Excellence
           </h1>
         </div>
