@@ -1,26 +1,18 @@
 "use client";
 
+import { User } from "@/types/User";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 
-interface User {
-  picture: {
-    large: string;
-  };
-  cell: string;
-  email: string;
-  gender: string;
-  id: { name: string; value: string };
-  name: { first: string; last: string; title: string };
-}
-
-const useGetRandomUser = () => {
-  const [user, setUser] = useState<User | null>(null);
+const useGetRandomUser = (people: number) => {
+  const [users, setUsers] = useState<User[] | null>(null);
 
   const getRandomUser = async () => {
     try {
-      const { data } = await axios.get("https://randomuser.me/api/");
-      setUser(data.results[0]);
+      const { data } = await axios.get(
+        `https://randomuser.me/api/?results=${people}&nat=gb`
+      );
+      setUsers(data.results);
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +22,7 @@ const useGetRandomUser = () => {
     getRandomUser();
   }, []);
 
-  return { user, getRandomUser };
+  return { users, getRandomUser };
 };
 
 export default useGetRandomUser;

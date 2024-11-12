@@ -1,4 +1,4 @@
-import AboutUs from "@/features/AboutUs";
+import AboutUs from "@/features/about-us";
 import React from "react";
 
 const AboutPage = () => {

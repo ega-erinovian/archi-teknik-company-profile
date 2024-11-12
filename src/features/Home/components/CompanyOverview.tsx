@@ -1,4 +1,4 @@
-import overviewContent from "../constants/overviewContent";
+import { overviewContent } from "../constants";
 
 const CompanyOverview = () => {
   return (

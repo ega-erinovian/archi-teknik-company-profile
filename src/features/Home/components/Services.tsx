@@ -1,5 +1,5 @@
 import Link from "next/link";
-import services from "../constants/services";
+import { services } from "../constants";
 
 const Services = () => {
   // TODO: CMS
