@@ -27,7 +27,7 @@ const Footer = () => {
                   d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
                   fill="#312ECB"></path>{" "}
               </svg>
-              ArchiTeknik
+              Archi
             </Link>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit

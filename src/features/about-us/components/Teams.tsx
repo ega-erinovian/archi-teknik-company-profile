@@ -37,6 +37,8 @@ const Teams = () => {
         plugins={[
           Autoplay({
             delay: 2000,
+            stopOnMouseEnter: true,
+            stopOnInteraction: false,
           }),
         ]}>
         <CarouselContent>

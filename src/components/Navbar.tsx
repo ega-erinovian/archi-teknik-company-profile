@@ -9,14 +9,13 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [textColor, setTextColor] = useState("");
+  const [color, setColor] = useState("");
 
   const currentPath = usePathname();
 
   const navItems = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about-us" },
-    { label: "Services", href: "/services" },
     { label: "Contact", href: "/contact" },
   ];
 
@@ -34,13 +33,13 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (currentPath === "/about-us" || currentPath === "/services") {
-      setTextColor("text-white");
+    if (currentPath !== "/") {
+      setColor("#ffffff");
       if (isScrolled) {
-        setTextColor("text-gray-600");
+        setColor("#4B5563");
       }
     } else {
-      setTextColor("text-gray-600");
+      setColor("#4B5563");
     }
   }, [currentPath, isScrolled]);
 
@@ -53,7 +52,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-gray-800">
+            <Link
+              href="/"
+              className="text-xl font-semibold flex items-center gap-2"
+              style={{ color: String(color) }}>
               <svg
                 id="logo-35"
                 width="50"
@@ -69,6 +71,7 @@ const Navbar = () => {
                   d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
                   fill="#312ECB"></path>{" "}
               </svg>
+              Archi
             </Link>
           </div>
 
@@ -78,8 +81,12 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`hover:text-blue-600 px-3 py-2 rounded-md text-sm transition-colors font-semibold ${textColor}`}>
+                className={`group transition duration-300 px-3 py-2 rounded-md text-sm font-semibold`}
+                style={{ color: String(color) }}>
                 {item.label}
+                <span
+                  className={`block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5`}
+                  style={{ backgroundColor: String(color) }}></span>
               </Link>
             ))}
           </div>
