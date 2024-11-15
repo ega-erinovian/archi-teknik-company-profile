@@ -12,7 +12,6 @@ const FAQ = () => {
       <h1 className="text-4xl xl:text-7xl text-center lg:text-start font-bold mb-20 xl:mb-24 capitalize">
         Things You May <span className="text-blue-600">Wonder</span>
       </h1>
-      {/* TODO: CMS */}
       <Accordion type="single" collapsible className="w-full">
         {questionAnswers.map((item, idx) => (
           <AccordionItem value={String(idx)} key={idx}>

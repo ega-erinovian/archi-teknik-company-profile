@@ -26,7 +26,7 @@ const Header = () => {
           className="dark:hidden block"
           animationStyle="from-center"
           videoSrc="https://www.youtube.com/embed/O9F4rXp1Ogc?si=WkllVozAevIwWLBf"
-          thumbnailSrc="/homepage/header/vid-thumbnail.jpg"
+          thumbnailSrc="/homepage/header/vid-thumbnail.webp"
           thumbnailAlt="Hero Video"
         />
       </div>

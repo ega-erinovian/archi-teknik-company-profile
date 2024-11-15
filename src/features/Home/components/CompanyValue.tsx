@@ -14,7 +14,7 @@ const CompanyValue = () => {
         </div>
         <div className="relative w-full h-[256px] md:h-[380px] xl:h-[600px] md:my-10 xl:my-0">
           <Image
-            src={"/testimonials-bg.png"}
+            src={"/testimonials-bg.webp"}
             alt="world-map"
             className="object-contain"
             fill

@@ -10,7 +10,7 @@ const ContactLink = () => {
           Make sure you choose the right consultant for your success
         </h1>
         <div className="w-full text-center md:flex items-center justify-end">
-          <Link href={"/"}>
+          <Link href={"/get-in-touch"}>
             <Button className="w-full py-12 md:py-8 md:px-8 bg-blue-600 hover:bg-blue-700">
               Contact Us <FaExternalLinkAlt className="opacity-30" />
             </Button>

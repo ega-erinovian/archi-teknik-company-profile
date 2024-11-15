@@ -16,7 +16,7 @@ const Navbar = () => {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about-us" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/get-in-touch" },
   ];
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (currentPath !== "/") {
+    if (currentPath !== "/" && currentPath !== "/get-in-touch") {
       setColor("#ffffff");
       if (isScrolled) {
         setColor("#4B5563");
