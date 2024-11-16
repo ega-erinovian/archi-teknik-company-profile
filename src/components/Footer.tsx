@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
+import { navItems } from "./constants";
 
 const Footer = () => {
   return (
@@ -30,47 +31,61 @@ const Footer = () => {
               Archi
             </Link>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit
-              hic dolores blanditiis assumenda veritatis amet, at repellat eius
-              corporis voluptate!
+              As a trusted engineering consultancy, we specialize in creating
+              efficient, forward-thinking designs that drive progress. Our
+              mission is to enhance communities through sustainable
+              infrastructure, prioritizing safety, quality, and environmental
+              responsibility in every project.
             </p>
           </div>
           <div className="lg:mx-auto">
             <h1 className="font-semibold text-xl mb-2">Company</h1>
             <ul className="flex flex-col gap-2">
-              <li>
-                <Link href="/" className="hover:text-blue-600">
-                  About Us
-                </Link>
-              </li>
-              <Link href="/" className="hover:text-blue-600">
-                <li>Company History</li>
-              </Link>
-              <Link href="/" className="hover:text-blue-600">
-                <li>Teams</li>
-              </Link>
-              <Link href="/" className="hover:text-blue-600">
-                <li>News</li>
-              </Link>
-              <Link href="/" className="hover:text-blue-600">
-                <li>Life at Archi</li>
-              </Link>
+              {navItems.map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className="hover:text-blue-600">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="">
             <div className="mb-8">
-              <h1 className="font-semibold text-xl mb-2">Office</h1>
-              <p>
-                Jl. Kayen Raya No. 23 B, Kayen, Condong Catur, Depok, Sleman,
-                Daerah Istimewa Yogyakarta
-              </p>
-            </div>
-            <div>
               <h1 className="font-semibold text-xl mb-2">Contact Us</h1>
               <p className="flex gap-2 items-center mb-2">
                 architeknikconsultant@gmail.com
               </p>
               <p className="flex gap-2 items-center">+62 812-525-62254</p>
+            </div>
+            <div>
+              <h1 className="font-semibold text-xl mb-2">Stay Tune</h1>
+              <ul className="flex gap-4">
+                <li className="p-2 bg-gradient-to-b from-violet-500 via-pink-500 to-orange-400 rounded-full">
+                  <Link
+                    href="https://www.instagram.com/egaerinovian/"
+                    className="text-2xl"
+                    target="_blank">
+                    <FaInstagram fill="#ffffff" />
+                  </Link>
+                </li>
+                <li className="p-2 bg-green-500 rounded-full">
+                  <Link
+                    href="https://wa.me/+6285155114016"
+                    className="text-2xl"
+                    target="_blank">
+                    <FaWhatsapp fill="#ffffff" />
+                  </Link>
+                </li>
+                <li className="p-2 bg-sky-600 rounded-full">
+                  <Link
+                    href="https://www.linkedin.com/in/ega-erinovian/"
+                    className="text-2xl"
+                    target="_blank">
+                    <FaLinkedinIn fill="#ffffff" />
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

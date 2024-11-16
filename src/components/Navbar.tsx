@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { headers } from "next/headers";
 import { usePathname } from "next/navigation";
+import { navItems } from "./constants";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,12 +13,6 @@ const Navbar = () => {
   const [color, setColor] = useState("");
 
   const currentPath = usePathname();
-
-  const navItems = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about-us" },
-    { label: "Contact", href: "/get-in-touch" },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
