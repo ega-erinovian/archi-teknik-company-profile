@@ -24,7 +24,7 @@ const Team: FC<TeamProps> = ({ user, position }) => {
         <CardHeader>
           <div className="flex items-center justify-around flex-col text-center gap-4">
             <Avatar className="w-[120px] h-[120px] xl:w-[164px] xl:h-[164px]">
-              <AvatarImage src={user?.picture.large} />
+              <AvatarImage src={user?.picture.large} alt={user?.name.first} />
               <AvatarFallback>{`${user?.name.first[0]}${user?.name.last[0]}`}</AvatarFallback>
             </Avatar>
             <div>
