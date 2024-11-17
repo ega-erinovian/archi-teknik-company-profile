@@ -9,7 +9,7 @@ const Header = () => {
           muted
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover">
-          <source src="/aboutpage/about-header.webm" type="video/webm" />
+          <source src="/aboutpage/header-vid.webm" type="video/webm" />
         </video>
 
         {/* Dark Overlay */}
