@@ -29,7 +29,7 @@ const CompanyValue = () => {
           </h1>
           <hr className="mb-7" />
           <h2 className="font-semibold text-3xl md:text-2xl mb-5">
-            Bringing Dreams Comes True
+            Experience in Engineering
           </h2>
         </div>
         <div className="text-center xl:text-start">
