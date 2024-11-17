@@ -41,7 +41,9 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/70 backdrop-blur-lg shadow-sm" : "bg-transparent"
+        isScrolled || isOpen
+          ? "bg-white/70 backdrop-blur-lg shadow-sm"
+          : "bg-transparent"
       }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
@@ -108,9 +110,11 @@ const Navbar = () => {
             <Link
               key={item.label}
               href={item.href}
+              onClick={() => setIsOpen(!isOpen)}
               className="font-semibold block px-3 py-2 rounded-md text-base text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors"
               style={{
                 transitionDelay: `${index * 50}ms`,
+                color: String(color),
               }}>
               {item.label}
             </Link>

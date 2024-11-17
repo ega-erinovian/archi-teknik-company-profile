@@ -14,7 +14,7 @@ interface TestimonialItemProps {
 
 const TestimonialItem: FC<TestimonialItemProps> = ({ testimonial }) => {
   return (
-    <div className="border border-gray-400 rounded-xl lg:grid lg:grid-cols-5 h-[70vh] lg:h-[60vh] w-[85vw] md:w-[70vw] xl:w-[50vw] overflow-hidden">
+    <div className="border border-gray-400 rounded-xl lg:grid lg:grid-cols-5 h-[640px] lg:h-[480px] w-[320px] md:w-[600px] xl:h-[640px] xl:w-[1080px] overflow-hidden">
       <div className="h-1/2 lg:h-full col-span-2">
         <div className="relative w-full h-full ">
           <Image

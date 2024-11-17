@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <>
-      <div className="relative w-full h-[80vh] overflow-hidden">
+      <div className="relative w-full h-[800px] overflow-hidden">
         {/* Video Background */}
         <video
           autoPlay
