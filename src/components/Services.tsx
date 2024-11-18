@@ -51,30 +51,6 @@ const Services: FC<ServicesProps> = async ({ id }) => {
             );
           }
         })}
-        {/* {services?.map((service) => (
-          <div
-            className="flex flex-col gap-3 items-center text-center py-10 lg:text-start lg:items-start"
-            key={service.entryId}>
-            <Image
-              src={service.icon}
-              alt={service.entryId}
-              width={1000}
-              height={1000}
-              className="w-20 h-20 mb-4"
-            />
-            <h2 className="font-semibold text-xl md:text-2xl xl:text-3xl">
-              {service.title}
-            </h2>
-            <div className="md:text-lg line-clamp-3">
-              {documentToReactComponents(service?.overview)}
-            </div>
-            <Link
-              href={"/service/" + service.entryId}
-              className="text-blue-600 hover:translate-x-1 font-semibold transition-all">
-              Learn More &#10141;
-            </Link>
-          </div>
-        ))} */}
       </div>
     </div>
   );
