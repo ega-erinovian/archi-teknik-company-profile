@@ -20,7 +20,6 @@ const CompanyValue = () => {
             fill
           />
         </div>
-        {/* TODO: Testimonials number - mobile ver*/}
         <div className="grid md:grid-cols-2 xl:grid-cols-4 md:gap-20 gap-32 mt-20 text-white">
           <div className="text-center xl:text-start">
             <h1 className="font-semibold mb-7 text-5xl xl:text-6xl">
