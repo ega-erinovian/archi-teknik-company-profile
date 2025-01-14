@@ -1,5 +1,10 @@
-import Image from "next/image";
+"use client";
+
 import React, { FC } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Quote } from "lucide-react";
 
 interface TestimonialItemProps {
   testimonial: {
@@ -14,41 +19,47 @@ interface TestimonialItemProps {
 
 const TestimonialItem: FC<TestimonialItemProps> = ({ testimonial }) => {
   return (
-    <div className="border border-gray-400 rounded-xl lg:grid lg:grid-cols-5 h-[640px] lg:h-[480px] w-[320px] md:w-[600px] xl:h-[640px] xl:w-[1080px] overflow-hidden">
-      <div className="h-1/2 lg:h-full col-span-2">
-        <div className="relative w-full h-full ">
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="w-[300px] sm:w-[400px] md:w-[500px] mx-4">
+      <Card className="h-full overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div className="relative h-40 sm:h-48">
           <Image
             src={testimonial.backgroundImage}
-            alt="test"
-            className="object-cover lg:object-center"
-            fill
-            sizes="1000"
+            alt={`${testimonial.name}'s background`}
+            layout="fill"
+            objectFit="cover"
+            className="transition-transform duration-300 hover:scale-105"
           />
         </div>
-      </div>
-      <div className="px-8 py-4 lg:px-12 lg:py-8 relative w-full col-span-3 h-1/2 lg:h-full">
-        <p className="text-lg lg:text-2xl xl:text-3xl text-start">
-          ″{testimonial.review}″
-        </p>
-        <div className="flex justify-between items-center absolute bottom-4 lg:bottom-8 left-0 w-full px-8 lg:px-12">
-          <div>
-            <h3 className="font-bold xl:text-2xl capitalize">
-              {testimonial.name}
-            </h3>
-            <p className="text-xs md:text-sm">{testimonial.company}</p>
+        <CardContent className="p-6 bg-gradient-to-br from-gray-50 to-white">
+          <Quote className="text-blue-600 w-8 h-8 mb-4" />
+          <p className="text-sm sm:text-base text-gray-800 italic leading-relaxed mb-4 line-clamp-4">
+            {testimonial.review}
+          </p>
+          <div className="flex justify-between items-center">
+            <div>
+              <h3 className="font-bold text-sm sm:text-base text-gray-900 capitalize">
+                {testimonial.name}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600">
+                {testimonial.company}
+              </p>
+            </div>
+            <div className="relative w-16 h-8 sm:w-20 sm:h-10">
+              <Image
+                src={testimonial.companyLogo}
+                alt={`${testimonial.company} logo`}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
           </div>
-          <div className="relative w-[100px] h-[50px]">
-            <Image
-              src={testimonial.companyLogo}
-              alt="test"
-              className="object-contain"
-              fill
-              sizes="1000"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 };
 

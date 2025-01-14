@@ -1,5 +1,4 @@
 import { createClient, FieldsType } from "contentful";
-import { title } from "process";
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,

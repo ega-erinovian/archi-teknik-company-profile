@@ -27,30 +27,28 @@ export const overviewContent = [
 
 export const questionAnswers = [
   {
-    question: "What services do you offer, and which industries do you serve?",
+    question: "What makes your services unique?",
     answer:
-      "We provide a comprehensive range of engineering services, including project planning, design development, site analysis, structural engineering, quality assurance, and sustainability consulting. Our expertise spans industries such as commercial, industrial, infrastructure, and environmental sectors.",
+      "Our services stand out due to our innovative approach, tailored solutions, and commitment to client success. We combine cutting-edge technology with industry expertise to deliver results that exceed expectations.",
   },
   {
-    question: "How does your consultation and project management process work?",
+    question: "How do you ensure client satisfaction?",
     answer:
-      "Our process starts with an in-depth consultation to understand your goals and project scope. We then develop a plan with clear timelines and budgets, maintaining open communication and providing regular updates to ensure alignment with your vision.",
+      "Client satisfaction is our top priority. We maintain open communication channels, provide regular progress updates, and actively seek feedback throughout the project lifecycle. Our dedicated support team is always available to address any concerns promptly.",
   },
   {
-    question:
-      "Do you handle projects of all sizes, and how do you manage timelines and budgets?",
+    question: "Can you handle projects of any scale?",
     answer:
-      "Yes, we work on projects of all sizes, from small assessments to large-scale developments. We set clear timelines and budgets upfront and actively manage resources to stay on track, addressing challenges proactively to meet deadlines and budget constraints.",
+      "Whether you're a startup or a large enterprise, we have the expertise and resources to tackle projects of all sizes. Our scalable solutions and flexible approach allow us to adapt to your specific needs and deliver outstanding results.",
   },
   {
-    question:
-      "How do you ensure quality, compliance, and sustainability in your projects??",
+    question: "What is your typical project timeline?",
     answer:
-      "We adhere to strict quality assurance protocols, including regular inspections and compliance checks, to uphold the highest safety and performance standards. Sustainability is a core value, and we integrate eco-friendly practices, energy-efficient designs, and green materials wherever possible.",
+      "Project timelines vary depending on the scope and complexity. However, we pride ourselves on efficient delivery without compromising quality. During our initial consultation, we'll provide a detailed timeline tailored to your project's unique requirements.",
   },
   {
-    question: "What sets you apart, and how can I get started?",
+    question: "Do you offer ongoing support after project completion?",
     answer:
-      "Our personalized approach, combined with deep industry expertise and a commitment to quality and sustainability, sets us apart. To get started, simply reach out via our contact page or give us a call to schedule an initial consultation.",
+      "Yes, we provide comprehensive post-project support. Our commitment doesn't end at delivery - we offer maintenance packages, regular check-ins, and continuous optimization to ensure your solution remains effective and up-to-date.",
   },
 ];

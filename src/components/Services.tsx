@@ -1,58 +1,115 @@
+"use client";
+
+import { FC, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { getServices } from "@/lib/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Image from "next/image";
-import { Skeleton } from "@/components/Loading";
-import { FC } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { ChevronRight } from "lucide-react";
 
 interface ServicesProps {
   id: string;
 }
 
-const Services: FC<ServicesProps> = async ({ id }) => {
-  const services = await getServices();
+const Services: FC<ServicesProps> = ({ id }) => {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
-  if (!services) {
-    return <Skeleton />;
-  }
+  const ServicesContent = async () => {
+    const services = await getServices();
 
-  return (
-    <div className="container mx-auto px-5 md:px-20 xl:px-0 mb-48 xl:mb-80">
-      <h1 className="text-4xl xl:text-7xl text-center lg:text-start font-bold mb-20 xl:mb-24 capitalize">
-        How can we help <span className="text-blue-600">you</span>?
-      </h1>
+    if (!services) {
+      return <Skeleton className="w-full h-[300px]" />;
+    }
 
-      <div className="lg:grid grid-cols-2 xl:grid-cols-3 gap-16 xl:gap-28">
-        {services?.map((service) => {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12">
+        {services.map((service) => {
           if (service.entryId !== id) {
             return (
-              <div
-                className="flex flex-col gap-3 items-center text-center py-10 lg:text-start lg:items-start"
-                key={service.entryId}>
-                <Image
-                  src={service.icon}
-                  alt={service.entryId}
-                  width={1000}
-                  height={1000}
-                  className="w-20 h-20 mb-4"
-                />
-                <h2 className="font-semibold text-xl md:text-2xl xl:text-3xl">
-                  {service.title}
-                </h2>
-                <div className="md:text-lg line-clamp-3">
-                  {documentToReactComponents(service?.overview)}
-                </div>
-                <Link
-                  href={"/service/" + service.entryId}
-                  className="text-blue-600 hover:translate-x-1 font-semibold transition-all">
-                  Learn More &#10141;
-                </Link>
-              </div>
+              <motion.div
+                key={service.entryId}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                onMouseEnter={() => setHoveredId(service.entryId)}
+                onMouseLeave={() => setHoveredId(null)}>
+                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                  <CardHeader className="text-center">
+                    <div className="w-20 h-20 mx-auto mb-4 relative">
+                      <Image
+                        src={service.icon}
+                        alt={service.entryId}
+                        layout="fill"
+                        objectFit="contain"
+                        className="transition-transform duration-300 transform group-hover:scale-110"
+                      />
+                    </div>
+                    <h2 className="font-semibold text-xl md:text-2xl xl:text-3xl text-gray-800">
+                      {service.title}
+                    </h2>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="md:text-lg text-gray-600 line-clamp-3">
+                      {documentToReactComponents(service?.overview)}
+                    </div>
+                  </CardContent>
+                  <CardFooter className="justify-center">
+                    <Link
+                      href={"/service/" + service.entryId}
+                      className="group inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-all">
+                      Learn More
+                      <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </CardFooter>
+                  {hoveredId === service.entryId && (
+                    <motion.div
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-blue-600"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </Card>
+              </motion.div>
             );
           }
+          return null;
         })}
       </div>
-    </div>
+    );
+  };
+
+  return (
+    <section className="bg-white py-24 sm:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h1
+          className="text-4xl sm:text-5xl lg:text-7xl text-center font-bold mb-16 sm:mb-24"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}>
+          How can we help{" "}
+          <span className="text-blue-600 relative">
+            you
+            <motion.span
+              className="absolute bottom-0 left-0 w-full h-1 bg-blue-600"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            />
+          </span>
+          ?
+        </motion.h1>
+        <ServicesContent />
+      </div>
+    </section>
   );
 };
 
