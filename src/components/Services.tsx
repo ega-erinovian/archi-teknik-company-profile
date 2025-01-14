@@ -1,9 +1,6 @@
-"use client";
-
-import { FC, useState } from "react";
+import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { getServices } from "@/lib/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -20,8 +17,6 @@ interface ServicesProps {
 }
 
 const Services: FC<ServicesProps> = ({ id }) => {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-
   const ServicesContent = async () => {
     const services = await getServices();
 
@@ -34,13 +29,7 @@ const Services: FC<ServicesProps> = ({ id }) => {
         {services.map((service) => {
           if (service.entryId !== id) {
             return (
-              <motion.div
-                key={service.entryId}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                onMouseEnter={() => setHoveredId(service.entryId)}
-                onMouseLeave={() => setHoveredId(null)}>
+              <div key={service.entryId}>
                 <Card className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                   <CardHeader className="text-center">
                     <div className="w-20 h-20 mx-auto mb-4 relative">
@@ -69,16 +58,8 @@ const Services: FC<ServicesProps> = ({ id }) => {
                       <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </CardFooter>
-                  {hoveredId === service.entryId && (
-                    <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-1 bg-blue-600"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
                 </Card>
-              </motion.div>
+              </div>
             );
           }
           return null;
@@ -90,23 +71,14 @@ const Services: FC<ServicesProps> = ({ id }) => {
   return (
     <section className="bg-white py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h1
-          className="text-4xl sm:text-5xl lg:text-7xl text-center font-bold mb-16 sm:mb-24"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}>
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl text-center font-bold mb-16 sm:mb-24">
           How can we help{" "}
           <span className="text-blue-600 relative">
             you
-            <motion.span
-              className="absolute bottom-0 left-0 w-full h-1 bg-blue-600"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            />
+            <span className="absolute bottom-0 left-0 w-full h-1 bg-blue-600" />
           </span>
           ?
-        </motion.h1>
+        </h1>
         <ServicesContent />
       </div>
     </section>
